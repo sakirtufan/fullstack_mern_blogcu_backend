@@ -7,7 +7,7 @@ import postRoutes from "./routes/posts.js";
 import customErrorHandler from "./middlewares/errors/customErrorHandler.js";
 
 const app = express();
-// Environment Variables
+
 dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -29,7 +29,7 @@ app.use(customErrorHandler);
 //MongoDb Connection
 
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
