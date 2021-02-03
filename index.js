@@ -3,28 +3,13 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import postRoutes from './routes/posts.js'
-import customErrorHandler from "./middlewares/errors/customErrorHandler.js"
+import postRoutes from "./routes/posts.js";
+import customErrorHandler from "./middlewares/errors/customErrorHandler.js";
 
 // Environment Variables
 dotenv.config({
   path: "./config/config.env",
 });
-
-//MongoDb Connection
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("MongoDb Connection Successful");
-  })
-  .catch((err) => {
-    console.error(err.message);
-  });
 
 const app = express();
 const PORT = process.env.PORT;
@@ -36,14 +21,25 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json({
     author: "Sakir Tufan",
-    message: "Fullstatck_Mern_Blogcu "
-  })
+    message: "Fullstatck_Mern_Blogcu ",
+  });
 });
 
 app.use("/posts", postRoutes);
 
 app.use(customErrorHandler);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port: ${process.env.PORT}:${process.env.NODE_ENV}`);
-});
+//MongoDb Connection
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server running on port: ${PORT} `));
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
