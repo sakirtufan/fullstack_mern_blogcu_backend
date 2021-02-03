@@ -44,6 +44,6 @@ app.use("/posts", postRoutes);
 
 app.use(customErrorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}:${process.env.NODE_ENV}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port: ${process.env.PORT}:${process.env.NODE_ENV}`);
 });
