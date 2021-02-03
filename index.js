@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import postRoutes from './routes/posts.js'
+import customErrorHandler from "./middlewares/errors/customErrorHandler.js"
 
 // Environment Variables
 dotenv.config({
@@ -40,6 +41,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/posts", postRoutes);
+
+app.use(customErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}:${process.env.NODE_ENV}`);
