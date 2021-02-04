@@ -20,11 +20,12 @@ app.get("/", (req, res) => {
     message: "Fullstatck_Mern_Blogcu ",
   });
 });
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
 app.use("/posts", postRoutes);
 
 app.use(customErrorHandler);
+
 
 //MongoDb Connection
 
@@ -32,12 +33,13 @@ mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT} `));
+    app.listen(process.env.PORT, () => console.log(`Server running on port: ${process.env.PORT} `));
   })
   .catch((error) => {
     console.error(error.message);
   });
 
-mongoose.set("useFindAndModify", false);
+
