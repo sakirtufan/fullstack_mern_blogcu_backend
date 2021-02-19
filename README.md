@@ -1,6 +1,7 @@
-This project is still being developed — PRs, Contributions and Issues are all welcome!
+<h1 style="text-align:center,font-size:30px" ><b>BLOGCU</b></h1><br/><br/>
+Dieses Projekt befindet sich noch in der Entwicklung - PRs, Beiträge und Probleme sind willkommen!<br/><br/>
 
-* Klicken Sie [hier](https://github.com/sakirtufan/fullstack_mern_blogcu_frontend), um die Struktur und Verwendung des Frontend-Codes anzuzeigen
+* Klicken Sie [hier](https://github.com/sakirtufan/fullstack_mern_blogcu_frontend), um die Struktur und Verwendung des Frontend-Codes anzuzeigen<br/><br/>
 
 # Getting started
 
