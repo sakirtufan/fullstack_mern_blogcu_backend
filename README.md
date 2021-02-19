@@ -1,5 +1,7 @@
 This project is still being developed — PRs, Contributions and Issues are all welcome!
 
+* Klicken Sie [hier](https://github.com/sakirtufan/fullstack_mern_blogcu_frontend), um die Struktur und Verwendung des Frontend-Codes anzuzeigen
+
 # Getting started
 
 
